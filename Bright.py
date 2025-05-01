@@ -14,12 +14,15 @@ language_codes = {
 }
 
 def get_crop_disease_info(query):
-    row = df[df.apply(lambda x: x["Crop"].lower() in query and x["Disease"].lower() in query, axis=1)]
-    return row.to_dict(orient="records")[0] if not row.empty else {"response": "Crop/disease info not found."}
+    row = df[df.apply(lambda x: x.get("Crop", "").lower() in query and x.get("Disease", "").lower() in query, axis=1)]
+if row.empty:
+    response = "Sorry, no information found for this crop/disease."
+else:
+    response = row.iloc[0]["Solution"]
 
 # Streamlit UI
 st.title("🌾 Agricultural Chatbot for Farmers in Ghana")
-st.write("Ask about crop diseases and solutions!")
+st.write("Ask about crops, diseases and solutions!")
 
 user_input = st.text_input("Enter your crop disease query:")
 language = st.selectbox("Choose language:", list(language_codes.keys()))
