@@ -28,7 +28,7 @@ if query:
     # Send query to OpenAI API
     response = openai.ChatCompletion.create(
         model="gpt-4",
-        messages=[{"role": "user", "content": prompt}]
+        messages=[{"role": "user", "content": query}]
     )
 
     # Extract AI response
