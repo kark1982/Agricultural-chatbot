@@ -1,8 +1,9 @@
 import streamlit as st
 import openai
 import os
-# Securely fetch API key from Streamlit secrets
-openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# Fetch API key securely from Streamlit secrets
+openai.api_key = openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Title of the chatbot
 st.title("🌱 Agricultural AI Chatbot")
@@ -18,16 +19,16 @@ languages = {
 selected_lang = st.selectbox("Choose Language", list(languages.keys()))
 
 # User input
-crop_query = st.text_input("🌿 Enter a crop name or ask a question:")
+query = st.text_input("🌿 Ask about a crop or disease:")
 
-if crop_query:
-    # Generate the query for ChatGPT
-    query = f"Provide detailed information about {crop_query}. Include common diseases, causes, symptoms, and solutions."
+if query:
+    # Generate AI-powered query
+    prompt = f"Provide detailed information about {query}. Include common diseases, causes, symptoms, and solutions."
 
     # Send query to OpenAI API
     response = openai.ChatCompletion.create(
         model="gpt-4",
-        messages=[{"role": "user", "content": query}]
+        messages=[{"role": "user", "content": prompt}]
     )
 
     # Extract AI response
