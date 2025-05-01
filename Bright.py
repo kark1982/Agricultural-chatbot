@@ -2,39 +2,46 @@ import streamlit as st
 import pandas as pd
 from googletrans import Translator
 
-# Load crop disease dataset
+# Load the dataset from GitHub
 url = "https://raw.githubusercontent.com/kark1982/agricultural-chatbot/main/Book1.csv"
 df = pd.read_csv(url)
 
+# Ensure column names are correctly formatted
+df.columns = df.columns.str.strip()
+
+# Initialize Translator
 translator = Translator()
 
-# Supported languages
-language_codes = {
-    "english": "en", "twi": "tw", "ga": "gaa", "ewe": "ee", "hausa": "ha"
+# Title of the chatbot
+st.title("Agricultural Chatbot for Ghanaian Farmers")
+
+# Select Language
+languages = {
+    "English": "en",
+    "Twi": "tw",
+    "Hausa": "ha",
+    "Ewe": "ee",
+    "French": "fr"
 }
+selected_lang = st.selectbox("Choose Language", list(languages.keys()))
 
-def get_crop_disease_info(query):
- row = df[df.apply(lambda x: x.get("Crop", "").lower() in query and x.get("Disease", "").lower() in query, axis=1)]
+# Get user input
+query = st.text_input("Enter crop or disease:")
 
-if 'row' not in locals():
-    response = "Error: Data retrieval failed."
-
-elif not row.empty:
-    response = row.iloc[0]["Solution"]
-else:
-    response = "Sorry, no information found for this crop/disease."
-
-# Streamlit UI
-st.title("🌾 Agricultural Chatbot for Farmers in Ghana")
-st.write("Ask about crops, diseases and solutions!")
-
-user_input = st.text_input("Enter your crop disease query:")
-language = st.selectbox("Choose language:", list(language_codes.keys()))
-
-if st.button("Get Info"):
-    response = get_crop_disease_info(user_input)
+# Search dataset for matching crop or disease
+if query:
+    query = query.lower().strip()
     
-    if language != "english":
-        response = {key: translator.translate(value, dest=language_codes[language]).text for key, value in response.items()}
-    
+    row = df[df.apply(lambda x: x.get("Crop", "").lower().strip() in query or x.get("Disease", "").lower().strip() in query, axis=1)]
+
+    if row.empty:
+        response = "❌ Sorry, no information found for this crop/disease."
+    else:
+        # Get solution
+        solution = row.iloc[0]["Solution"]
+        
+        # Translate solution to selected language
+        translated_solution = translator.translate(solution, dest=languages[selected_lang]).text
+        response = f"✅ Solution ({selected_lang}): {translated_solution}"
+
     st.write(response)
