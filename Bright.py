@@ -3,7 +3,7 @@ import pandas as pd
 from googletrans import Translator
 
 # Load crop disease dataset
-url = "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/agricultural-chatbot/main/Book1.csv"
+url = "https://raw.githubusercontent.com/kark1982/agricultural-chatbot/main/Book1.csv"
 df = pd.read_csv(url)
 
 translator = Translator()
