@@ -19,8 +19,6 @@ if row is not None and not row.empty:
     response = row.iloc[0]["Solution"]
 else:
     response = "Sorry, no information found for this crop/disease."
-else:
-    response = row.iloc[0]["Solution"]
 
 # Streamlit UI
 st.title("🌾 Agricultural Chatbot for Farmers in Ghana")
