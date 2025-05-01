@@ -14,8 +14,10 @@ language_codes = {
 }
 
 def get_crop_disease_info(query):
-    row = df[df.apply(lambda x: x.get("Crop", "").lower() in query and x.get("Disease", "").lower() in query, axis=1)]
-if row.empty:
+  row = df[df.apply(lambda x: x.get("Crop", "").lower() in query and x.get("Disease", "").lower() in query, axis=1)]
+if row is not None and not row.empty:
+    response = row.iloc[0]["Solution"]
+else:
     response = "Sorry, no information found for this crop/disease."
 else:
     response = row.iloc[0]["Solution"]
