@@ -3,7 +3,7 @@ import openai
 import os
 
 # Fetch API key securely from Streamlit secrets
-openai.api_key = openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Title of the chatbot
 st.title("🌱 Agricultural AI Chatbot")
