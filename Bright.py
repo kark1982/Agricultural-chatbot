@@ -13,7 +13,7 @@ df.columns = df.columns.str.strip()
 translator = Translator()
 
 # Title of the chatbot
-st.title("Agricultural Chatbot for Ghanaian Farmers")
+st.title("🌱 Agricultural Chatbot for Ghanaian Farmers")
 
 # Select Language
 languages = {
@@ -25,23 +25,35 @@ languages = {
 }
 selected_lang = st.selectbox("Choose Language", list(languages.keys()))
 
-# Get user input
-query = st.text_input("Enter crop or disease:")
+# User Inputs for Crop & Disease
+crop_input = st.text_input("Enter the crop name:")
+disease_input = st.text_input("Enter the disease affecting the crop:")
 
-# Search dataset for matching crop or disease
-if query:
-    query = query.lower().strip()
+if crop_input and disease_input:
+    # Normalize user inputs
+    crop_query = crop_input.lower().strip()
+    disease_query = disease_input.lower().strip()
     
-    row = df[df.apply(lambda x: x.get("Crop", "").lower().strip() in query or x.get("Disease", "").lower().strip() in query, axis=1)]
+    # Search dataset for matching crop and disease
+    row = df[(df["Crop"].str.lower().str.strip() == crop_query) & 
+             (df["Disease"].str.lower().str.strip() == disease_query)]
 
     if row.empty:
-        response = "❌ Sorry, no information found for this crop/disease."
+        st.write("❌ Sorry, no information found for this crop/disease.")
     else:
-        # Get solution
+        # Retrieve disease information
+        cause = row.iloc[0]["Cause"]
+        symptoms = row.iloc[0]["Symptoms"]
         solution = row.iloc[0]["Solution"]
         
-        # Translate solution to selected language
+        # Translate information to the selected language
+        translated_cause = translator.translate(cause, dest=languages[selected_lang]).text
+        translated_symptoms = translator.translate(symptoms, dest=languages[selected_lang]).text
         translated_solution = translator.translate(solution, dest=languages[selected_lang]).text
-        response = f"✅ Solution ({selected_lang}): {translated_solution}"
-
-    st.write(response)
+        
+        # Display the results
+        st.write(f"🌿 *Crop:* {crop_input}")
+        st.write(f"🦠 *Disease:* {disease_input}")
+        st.write(f"⚠ *Cause ({selected_lang}):* {translated_cause}")
+        st.write(f"🤒 *Symptoms ({selected_lang}):* {translated_symptoms}")
+        st.write(f"💊 *Solution ({selected_lang}):* {translated_solution}")
