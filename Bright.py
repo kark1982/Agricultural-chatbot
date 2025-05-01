@@ -26,7 +26,7 @@ if query:
     prompt = f"Provide detailed information about {query}. Include common diseases, causes, symptoms, and solutions."
 
     # Send query to OpenAI API
-    response = openai.chat_completions.create(
+    response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "user", "content": query}]
     )
