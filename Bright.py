@@ -38,11 +38,13 @@ if disease_input:
         cause = row.iloc[0]["Cause"]
         symptoms = row.iloc[0]["Symptoms"]
          solution = row.iloc[0]["Solution"]
+          # Proceed with translation and display logic
+    else:
+         st.write("Sorry, no information found for this disease.")
+   
 
-    # Proceed with translation and display logic
-else:
-    st.write("Sorry, no information found for this disease.")
 
+  
         
         # Translate information to the selected language
         translated_cause = translator.translate(cause, dest=languages[selected_lang]).text
