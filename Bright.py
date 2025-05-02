@@ -3,9 +3,8 @@ import pandas as pd
 from googletrans import Translator
 
 # Load the dataset from GitHub
-url = "https://raw.githubusercontent.com/kark1982/repository/main/Book1.csv"
+url = "https://raw.githubusercontent.com/kark1982/agricultural-chatbot/main/Book1.csv"
 df = pd.read_csv(url)
-
 
 # Ensure column names are correctly formatted
 df.columns = df.columns.str.strip()
@@ -14,7 +13,7 @@ df.columns = df.columns.str.strip()
 translator = Translator()
 
 # Title of the chatbot
-st.title("🌱 Agricultural Chatbot for Farmers")
+st.title("🌱 Agricultural Chatbot for Ghanaian Farmers")
 
 # Select Language
 languages = {
@@ -24,37 +23,35 @@ languages = {
 }
 selected_lang = st.selectbox("Choose Language", list(languages.keys()))
 
-# User Input for Disease
+# User Inputs for Crop & Disease
+crop_input = st.text_input("Enter the crop name:")
 disease_input = st.text_input("Enter the disease affecting the crop:")
 
-if disease_input:
-    # Normalize user input
+if crop_input and disease_input:
+    # Normalize user inputs
+    crop_query = crop_input.lower().strip()
     disease_query = disease_input.lower().strip()
     
-    # Search dataset for matching disease
-    row = df[df["Disease"].str.lower().str.strip() == disease_query]
+    # Search dataset for matching crop and disease
+    row = df[(df["Crop"].str.lower().str.strip() == crop_query) & 
+             (df["Disease"].str.lower().str.strip() == disease_query)]
 
     if row.empty:
-        translated_message = translator.translate(
-            "Sorry, no information found for this disease.", dest=languages[selected_lang]
-        ).text
-        st.write(translated_message)
+        st.write("❌ Sorry, no information found for this crop/disease.")
     else:
         # Retrieve disease information
-        crop = row.iloc[0]["Crop"]
         cause = row.iloc[0]["Cause"]
         symptoms = row.iloc[0]["Symptoms"]
         solution = row.iloc[0]["Solution"]
-
-        # Construct full message in English
-        response_text = (
-            f"Oh no! {disease_query.capitalize()} can really affect your {crop}. "
-            f"It's usually caused by {cause}. You might notice symptoms like {symptoms}. "
-            f"{solution} to help your crop become healthy"
-        )
-
-        # **Translate the entire message, not just individual words**
-        translated_response = translator.translate(response_text, dest=languages[selected_lang]).text
-
-        # Display the fully translated response
-        st.write(translated_response)
+        
+        # Translate information to the selected language
+        translated_cause = translator.translate(cause, dest=languages[selected_lang]).text
+        translated_symptoms = translator.translate(symptoms, dest=languages[selected_lang]).text
+        translated_solution = translator.translate(solution, dest=languages[selected_lang]).text
+        
+        # Display the results
+        st.write(f"🌿 *Crop:* {crop_input}")
+        st.write(f"🦠 *Disease:* {disease_input}")
+        st.write(f"⚠ *Cause ({selected_lang}):* {translated_cause}")
+        st.write(f"🤒 *Symptoms ({selected_lang}):* {translated_symptoms}")
+        st.write(f"💊 *Solution ({selected_lang}):* {translated_solution}")
