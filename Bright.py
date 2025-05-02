@@ -37,7 +37,6 @@ if disease_input:
         st.write("Sorry, no information found for this disease.")
     else:
         # Retrieve disease information
-        crop = row.iloc[0]["Crop"]
         cause = row.iloc[0]["Cause"]
         symptoms = row.iloc[0]["Symptoms"]
         solution = row.iloc[0]["Solution"]
