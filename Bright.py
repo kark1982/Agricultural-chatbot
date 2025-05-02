@@ -1,5 +1,5 @@
 
-  import streamlit as st
+import streamlit as st
 import pandas as pd
 from googletrans import Translator
 
