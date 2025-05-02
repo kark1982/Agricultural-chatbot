@@ -34,7 +34,10 @@ if disease_input:
     row = df[df["Disease"].str.lower().str.strip() == disease_query]
 
     if row.empty:
-        st.write("Sorry, no information found for this disease.")
+        translated_message = translator.translate(
+            "Sorry, no information found for this disease.", dest=languages[selected_lang]
+        ).text
+        st.write(translated_message)
     else:
         # Retrieve disease information
         crop = row.iloc[0]["Crop"]
@@ -42,12 +45,15 @@ if disease_input:
         symptoms = row.iloc[0]["Symptoms"]
         solution = row.iloc[0]["Solution"]
 
-        # Translate information to the selected language
-        translated_cause = translator.translate(cause, dest=languages[selected_lang]).text
-        translated_symptoms = translator.translate(symptoms, dest=languages[selected_lang]).text
-        translated_solution = translator.translate(solution, dest=languages[selected_lang]).text
-        
-        # Display the results
-        st.write(f"Oh no! {disease_query.capitalize()} can really affect your {crop}. "
-                 f"It's usually caused by {translated_cause}. You might notice symptoms like {translated_symptoms}. "
-                 f"But the good news is that you can manage it by using {translated_solution}.")
+        # Create the response text in English
+        response_text = (
+            f"Oh no! {disease_query.capitalize()} can really affect your {crop}. "
+            f"It's usually caused by {cause}. You might notice symptoms like {symptoms}. "
+            f"But the good news is that you can manage it by using {solution}."
+        )
+
+        # Translate the **entire** message
+        translated_response = translator.translate(response_text, dest=languages[selected_lang]).text
+
+        # Display the fully translated response
+        st.write(translated_response)
