@@ -24,7 +24,6 @@ languages = {
 selected_lang = st.selectbox("Choose Language", list(languages.keys()))
 
 # User Inputs for Crop & Disease
-crop_input = st.text_input("Enter the crop name:")
 disease_input = st.text_input("Enter the disease affecting the crop:")
 
 if crop_input and disease_input:
