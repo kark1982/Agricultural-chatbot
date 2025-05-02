@@ -45,14 +45,14 @@ if disease_input:
         symptoms = row.iloc[0]["Symptoms"]
         solution = row.iloc[0]["Solution"]
 
-        # Create the response text in English
+        # Construct full message in English
         response_text = (
             f"Oh no! {disease_query.capitalize()} can really affect your {crop}. "
             f"It's usually caused by {cause}. You might notice symptoms like {symptoms}. "
             f"But the good news is that you can manage it by using {solution}."
         )
 
-        # Translate the **entire** message
+        # **Translate the entire message, not just individual words**
         translated_response = translator.translate(response_text, dest=languages[selected_lang]).text
 
         # Display the fully translated response
