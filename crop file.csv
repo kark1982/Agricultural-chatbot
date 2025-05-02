@@ -2,7 +2,7 @@ Crop,Disease,Cause,Symptoms,Solution,
 Rice,Blast disease,Fungus that spreads in wet fields,Brown spots on leaves and stems,Use strong rice seeds and spray antifungal medicine,
 Cocoa,Black pod,Disease spreads in rainy weather,Black patches on cocoa pods,Cut off bad pods and use special spray to protect the rest,
 Tomato,Early blight,Small fungus that spreads in warm weather,Leaves turn brown with round dry patches,Use good seeds and spray antifungal medicine,
-Potato,Late blight,Fungus that spreads fast in damp air,Leaves look burnt, potatoes rot inside,Use disease-resistant plants and remove infected ones
+Potato,Late blight,Fungus that spreads fast in damp air,potatoes rot inside,Use disease-resistant plants and remove infected ones
 Wheat,Rust disease,Tiny fungus carried by wind,Rust-colored marks on leaves,Plant strong wheat varieties and spray anti-rust medicine,
 Maize,Maize streak virus,Tiny insects carry this disease,Yellow lines on leaves,Plant disease-free maize seeds and control insects,
 Banana,Panama disease,Fungus lives in the soil,Leaves turn yellow and dry,Cannot be cured—plant new healthy bananas in fresh soil,
