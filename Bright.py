@@ -1,9 +1,10 @@
-import streamlit as st
+
+  import streamlit as st
 import pandas as pd
 from googletrans import Translator
 
 # Load the dataset from GitHub
-url = "https://github.com/kark1982/Agricultural-chatbot/blob/main/Book1.csv"
+url = "https://raw.githubusercontent.com/kark1982/agricultural-chatbot/main/Book1.csv"
 df = pd.read_csv(url)
 
 # Ensure column names are correctly formatted
