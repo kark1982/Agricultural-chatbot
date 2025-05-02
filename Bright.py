@@ -31,7 +31,7 @@ if crop_input and disease_input:
     disease_query = disease_input.lower().strip()
     
     # Search dataset for matching crop and disease
-    row = (df["Disease"].str.lower().str.strip() == disease_query)]
+    row = (df["Disease"].str.lower().str.strip() == disease_query)
 
     if row.empty:
         st.write("Sorry, no information found for this disease.")
