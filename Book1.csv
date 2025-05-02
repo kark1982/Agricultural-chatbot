@@ -1,8 +1,49 @@
 Crop,Disease,Cause,Symptoms,Solution
-Cocoa,Black Pod,Fungal infection,Dark brown spots on pods,fungicides and prune infected pods
-Rice,Blast Disease,Fungal pathogen,Leaf lesions and wilting,resistant varieties and fungicide
-Maize,Fall Armyworm,Pest infestation,Leaf holes and defoliation,biopesticides & natural predators
-Cassava,Cassava Mosaic Virus,Viral infection,Stunted growth and leaf curling,disease-free planting material
-Yam,Anthracnose,Fungal infection,Dark lesions on leaves & tubers,fungicides & practice crop rotation
-Palm oil,Bud Rot,Bacterial infection,Wilting leaves and rotting buds,improved drainage systems and use resistant seedlings
-Cashew,Powdery Mildew,Fungal pathogen,White powdery spots on leaves,sulfur-based fungicides & prune infected areas
+Rice,Blast disease,Fungus that spreads in wet fields,Brown spots on leaves and stems,Use strong rice seeds and spray antifungal medicine
+Cocoa,Black pod,Disease spreads in rainy weather,Black patches on cocoa pods,Cut off bad pods and use special spray to protect the rest
+Tomato,Early blight,Small fungus that spreads in warm weather,Leaves turn brown with round dry patches,Use good seeds and spray antifungal medicine
+Potato,Late blight,Fungus that spreads fast in damp air,Leaves look burnt, potatoes rot inside,Use disease-resistant plants and remove infected ones
+Wheat,Rust disease,Tiny fungus carried by wind,Rust-colored marks on leaves,Plant strong wheat varieties and spray anti-rust medicine
+Maize,Maize streak virus,Tiny insects carry this disease,Yellow lines on leaves,Plant disease-free maize seeds and control insects
+Banana,Panama disease,Fungus lives in the soil,Leaves turn yellow and dry,Cannot be cured—plant new healthy bananas in fresh soil
+Cassava,Cassava mosaic virus,Tiny white insects spread disease,Leaves curl and get yellow spots,Use clean cassava cuttings and control insects
+Soybean,Soybean rust,Fungus carried by wind,Small reddish spots on leaves,Spray anti-fungal medicine and rotate crops
+Sugarcane,Red rot,Fungus in wet soil,Inside sugarcane turns red,Spray medicine and make sure soil has good drainage
+Cotton,Bacterial blight,Tiny germs spread in water,Leaves get holes and fall off,Use disease-free seeds and spray medicine
+Groundnut,Aflatoxin,Fungus grows if groundnuts stay wet,Groundnuts change color and smell bad,Dry groundnuts well before storing them
+Millet,Downy mildew,Fungus spreads in moist air,Leaves turn yellow with patches,Use strong seeds and spray medicine
+Coffee,Coffee leaf rust,Tiny spores spread by wind,Leaves get orange rust spots,Trim trees for air flow and spray antifungal medicine
+Peanut,Leaf spot,Fungus in soil,Brown round marks on leaves,Spray medicine and add healthy nutrients to soil
+Barley,Yellow dwarf virus,Tiny insects carry disease,Leaves turn yellow, plant grows small,Plant resistant seeds and control insects
+Alfalfa,Alfalfa virus,Spread by insects,Leaves turn yellow and curl,Protect plants from insects using spray
+Pear,Fire blight,Bacteria attack during hot weather,Leaves turn black like burnt,Trim bad branches and use antibiotic spray
+Apple,Apple scab,Fungus grows on apples,Dark rough spots on apple skin,Use medicine spray and keep orchard clean
+Grapes,Powdery mildew,Fungus spreads in damp air,White powder covers leaves,Spray antifungal medicine and give plants space
+Cabbage,Black rot,Tiny germs in water,Leaves turn yellow with black veins,Use clean seeds and avoid watering leaves
+Carrot,Leaf blight,Fungus spreads in warm weather,Brown marks on leaves,Spray medicine and water carefully
+Pumpkin,Powdery mildew,Fungus spreads in dry air,Leaves have white powder spots,Spray medicine and trim extra leaves
+Avocado,Root rot,Fungus in wet soil,Roots start to rot,Improve soil drainage and spray medicine
+Mango,Anthracnose,Fungus grows in rainy weather,Black spots appear on mango skin,Spray medicine and store mangoes properly
+Papaya,Ringspot virus,Tiny insects carry disease,Yellow rings on leaves,Cut sick plants and protect healthy ones from insects
+Pineapple,Heart rot,Bacteria in wet soil,Leaves rot from the center,Improve drainage and spray medicine
+Strawberry,Gray mold,Fungus grows in wet weather,Brown moldy patches on fruit,Use dry straw to protect berries and spray medicine
+Pear,Leaf spot,Fungus grows in damp conditions,Red spots appear on leaves,Spray medicine and trim bad leaves
+Orange,Citrus canker,Bacteria spread in rain,Scabby wounds on leaves and fruit,Trim infected areas and use antibacterial spray
+Lemon,Greening disease,Tiny insects spread germs,Fruits grow in weird shapes,Kill insects and plant resistant trees
+Peach,Bacterial spot,Germs spread in wet air,Small black marks on fruit and leaves,Use antibacterial spray and trim infected parts
+Chili pepper,Anthracnose,Fungus in damp weather,Black sunken spots on chilies,Use antifungal spray and dry chilies properly
+Eggplant,Wilt disease,Fungus in soil,Leaves turn yellow and droop,Plant strong varieties and keep soil dry
+Onion,Downy mildew,Fungus in wet soil,Purple fuzzy patches on leaves,Use medicine spray and keep plants spaced apart
+Garlic,White rot,Fungus in damp soil,Roots and bulbs rot,Remove sick plants and make soil healthy
+Cashew,Dieback disease,Fungus spreads in wet conditions,Branches dry and turn black,Cut bad parts and spray medicine
+Peas,Root rot,Fungus in wet soil,Roots turn black and die,Improve drainage and rotate crops
+Lettuce,Damping-off,Fungus in seedlings,Plants die before growing,Use clean soil and avoid overwatering
+Beet,Leaf spot,Fungus spreads fast,Red-purple marks on leaves,Spray medicine and keep soil healthy
+Blackberry,Raspberry leaf curl virus,Tiny insects carry disease,Leaves curl and grow smaller,Protect plants from insects
+Sunflower,Downy mildew,Fungus in moist air,Yellow patches on leaves,Spray medicine and water properly
+Palm,Bud rot,Fungus spreads in warm damp places,Growing tips turn brown,Improve airflow and spray medicine
+Coconut,Lethal yellowing,Disease spread by insects,Fruit drops early,Keep trees healthy and kill insects
+Cherry,Leaf spot,Fungus in wet weather,Brown spots on leaves,Use antifungal spray and prune trees
+Mulberry,White leaf disease,Fungus spreads in damp air,Leaves turn white,Spray medicine and control humidity
+Guava,Guava wilt,Fungus in soil,Leaves dry and roots rot,Use medicine spray and keep soil healthy
+Pomegranate,Root knot nematodes,Tiny worms in soil,Plants grow weak with bumpy roots,Improve soil health and use nematode killer
