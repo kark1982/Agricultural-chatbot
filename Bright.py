@@ -36,7 +36,7 @@ if crop_input and disease_input:
              (df["Disease"].str.lower().str.strip() == disease_query)]
 
     if row.empty:
-        st.write("❌ Sorry, no information found for this crop/disease.")
+        st.write("Sorry, no information found for this disease.")
     else:
         # Retrieve disease information
         cause = row.iloc[0]["Cause"]
