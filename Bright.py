@@ -49,7 +49,7 @@ if disease_input:
         response_text = (
             f"Oh no! {disease_query.capitalize()} can really affect your {crop}. "
             f"It's usually caused by {cause}. You might notice symptoms like {symptoms}. "
-            f"But the good news is that you can manage it by using {solution}."
+            f"{solution} to help your crop become healthy"
         )
 
         # **Translate the entire message, not just individual words**
