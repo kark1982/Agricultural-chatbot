@@ -5,6 +5,8 @@ from googletrans import Translator
 # Load the dataset from GitHub
 url = "https://github.com/kark1982/Agricultural-chatbot/blob/main/crops.csv"
 df = pd.read_csv(url)
+df = pd.read_csv(url, on_bad_lines="skip")
+
 
 # Ensure column names are correctly formatted
 df.columns = df.columns.str.strip()
