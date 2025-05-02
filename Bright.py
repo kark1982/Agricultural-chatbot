@@ -1,10 +1,13 @@
 import streamlit as st
-import openai
 import os
+from openai import OpenAI
 
-# Fetch API key securely from Streamlit secrets
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
 
+print(response.output_text)
 # Title of the chatbot
 st.title("🌱 Agricultural AI Chatbot")
 
@@ -26,9 +29,11 @@ if query:
     prompt = f"Provide detailed information about {query}. Include common diseases, causes, symptoms, and solutions."
 
     # Send query to OpenAI API
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[{"role": "user", "content": query}]
+   response = client.responses.create(
+    model="gpt-4o",
+    instructions="You are a coding assistant that talks like a pirate.",
+    
+       messages=[{"role": "user", "content": query}]
     )
 
     # Extract AI response
