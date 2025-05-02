@@ -33,13 +33,16 @@ if disease_input:
     # Search dataset for matching disease
     row = (df["Disease"].str.lower().str.strip() == disease_query)
 
-    if row.empty:
-        st.write("Sorry, no information found for this disease.")
-    else:
-        # Retrieve disease information
-        cause = row.iloc[0]["Cause"]
-        symptoms = row.iloc[0]["Symptoms"]
-        solution = row.iloc[0]["Solution"]
+    if not row.empty:
+    crop = row.iloc[0]["Crop"]
+    cause = row.iloc[0]["Cause"]
+    symptoms = row.iloc[0]["Symptoms"]
+    solution = row.iloc[0]["Solution"]
+
+    # Proceed with translation and display logic
+else:
+    st.write("Sorry, no information found for this disease.")
+
         
         # Translate information to the selected language
         translated_cause = translator.translate(cause, dest=languages[selected_lang]).text
