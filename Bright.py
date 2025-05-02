@@ -23,35 +23,31 @@ languages = {
 }
 selected_lang = st.selectbox("Choose Language", list(languages.keys()))
 
-# User Inputs for  Disease
+# User Input for Disease
 disease_input = st.text_input("Enter the disease affecting the crop:")
 
 if disease_input:
-    # Normalize user inputs
+    # Normalize user input
     disease_query = disease_input.lower().strip()
     
     # Search dataset for matching disease
-    row = (df["Disease"].str.lower().str.strip() == disease_query)
+    row = df[df["Disease"].str.lower().str.strip() == disease_query]
 
-    if not row.empty:
+    if row.empty:
+        st.write("Sorry, no information found for this disease.")
+    else:
+        # Retrieve disease information
         crop = row.iloc[0]["Crop"]
         cause = row.iloc[0]["Cause"]
         symptoms = row.iloc[0]["Symptoms"]
-         solution = row.iloc[0]["Solution"]
-          # Proceed with translation and display logic
-    else:
-         st.write("Sorry, no information found for this disease.")
-   
+        solution = row.iloc[0]["Solution"]
 
-
-  
-        
         # Translate information to the selected language
         translated_cause = translator.translate(cause, dest=languages[selected_lang]).text
         translated_symptoms = translator.translate(symptoms, dest=languages[selected_lang]).text
         translated_solution = translator.translate(solution, dest=languages[selected_lang]).text
         
         # Display the results
-        (f"Oh no! {Disease} can really affect your crops. This disease mainly affect {Crop}. "
-         f"It's usually caused by {Cause}. You might notice symptoms like {Symptoms}. "
-         f"But the good news is that you can manage it by using {Solution}. ")
+        st.write(f"Oh no! {disease_query.capitalize()} can really affect your {crop}. "
+                 f"It's usually caused by {translated_cause}. You might notice symptoms like {translated_symptoms}. "
+                 f"But the good news is that you can manage it by using {translated_solution}.")
