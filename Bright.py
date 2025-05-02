@@ -23,17 +23,15 @@ languages = {
 }
 selected_lang = st.selectbox("Choose Language", list(languages.keys()))
 
-# User Inputs for Crop & Disease
+# User Inputs for  Disease
 disease_input = st.text_input("Enter the disease affecting the crop:")
 
 if crop_input and disease_input:
     # Normalize user inputs
-    crop_query = crop_input.lower().strip()
     disease_query = disease_input.lower().strip()
     
     # Search dataset for matching crop and disease
-    row = df[(df["Crop"].str.lower().str.strip() == crop_query) & 
-             (df["Disease"].str.lower().str.strip() == disease_query)]
+    row = (df["Disease"].str.lower().str.strip() == disease_query)]
 
     if row.empty:
         st.write("Sorry, no information found for this disease.")
