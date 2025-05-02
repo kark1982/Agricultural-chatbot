@@ -34,10 +34,10 @@ if disease_input:
     row = (df["Disease"].str.lower().str.strip() == disease_query)
 
     if not row.empty:
-    crop = row.iloc[0]["Crop"]
-    cause = row.iloc[0]["Cause"]
-    symptoms = row.iloc[0]["Symptoms"]
-    solution = row.iloc[0]["Solution"]
+        crop = row.iloc[0]["Crop"]
+        cause = row.iloc[0]["Cause"]
+        symptoms = row.iloc[0]["Symptoms"]
+         solution = row.iloc[0]["Solution"]
 
     # Proceed with translation and display logic
 else:
