@@ -30,13 +30,14 @@ if disease_input:
     # Normalize user inputs
     disease_query = disease_input.lower().strip()
     
-    # Search dataset for matching crop and disease
+    # Search dataset for matching disease
     row = (df["Disease"].str.lower().str.strip() == disease_query)
 
     if row.empty:
         st.write("Sorry, no information found for this disease.")
     else:
         # Retrieve disease information
+        crop = row.iloc[0]["Crop"]
         cause = row.iloc[0]["Cause"]
         symptoms = row.iloc[0]["Symptoms"]
         solution = row.iloc[0]["Solution"]
