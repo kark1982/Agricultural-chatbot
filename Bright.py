@@ -50,8 +50,6 @@ if crop_input and disease_input:
         translated_solution = translator.translate(solution, dest=languages[selected_lang]).text
         
         # Display the results
-        st.write(f"🌿 *Crop:* {crop_input}")
-        st.write(f"🦠 *Disease:* {disease_input}")
-        st.write(f"⚠ *Cause ({selected_lang}):* {translated_cause}")
-        st.write(f"🤒 *Symptoms ({selected_lang}):* {translated_symptoms}")
-        st.write(f"💊 *Solution ({selected_lang}):* {translated_solution}")
+        (f"Oh no! {Disease} can really affect your crops. This disease mainly affect {Crop}. "
+         f"It's usually caused by {Cause}. You might notice symptoms like {Symptoms}. "
+         f"But the good news is that you can manage it by using {Solution}. ")
